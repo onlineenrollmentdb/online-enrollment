@@ -1,0 +1,66 @@
+REGISTRATION FORM
+
+Student Personal Data
+Date:
+Last Name:
+First Name:
+Middle Name:
+Permanent Address:
+Contact No. :
+Congressional District:
+Region:
+Email Address:
+Gender : [ ]Male  [ ]Female
+Birthday:(dd/mm/yyyy) 
+Birthplace:
+Citizenship:
+Religion:
+Civil Status: [ ]Single [ ]Married [ ] Widow/er
+Father's Name:
+Occupation:
+Mother's Name:
+Occupation:
+Guardian/Spouse Name:
+Contact No. :
+Educational Background:
+Name of School
+Academic Year 
+Honors Received
+Basic Education:
+Higher Education-Bacc:
+Higher-Education-Pg:
+QS & World THE needed data:
+Are you a First Generation Student starting a degree? 
+[√]Yes []No
+(A first generation student is one who reports, he/she is the first person in the immediate family to attend university at any level) 
+
+ENROLLMENT DOCUMENTS SUBMITTED
+[√]Deped Form 138/Report Card
+[√]LRN:
+[√]Birth Certificate from PSA
+[   ]Certificate of Transfer Credentials & TOR
+[   ]Marriage Certificate if applicable 
+[√]Certificate of Good Moral
+"I hereby certify that all entries are true and correct. I do solemnly swear to abide with the laws, policies, rules and regulations set forth by the University. "
+
+Student Signature over Printed Name
+
+STUDENT LOAD
+ID Number:
+Program:
+Major:
+Year Level:
+School Year:
+Semester/Trimester:[ ]1st  [ ]2nd  [ ]Summer Term
+Enrollment Status: [ ] Regular [ ] Irregular
+Student Status: [ ]New [ ]Transferee
+Block Section:
+MIS Code
+Subject Code
+Descriptive Title
+Time
+Days
+Room
+Units
+Note: ONLY irregular students will fill out this section
+Total Units:

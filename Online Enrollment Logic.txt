@@ -1,0 +1,39 @@
+
+enrollment_status:
+0 = approved
+1 = cleared clearance
+2 = medical form
+3 = enrolled
+
+
+
+
+
+
+
+
+SUBJECT PREREQUISITE LOGIC
+Student Load unit Max: 27
+Below 27 is okay
+
+Regular Student has no problem since they follow the curriculum so just enroll directly
+
+Irregular Students this is a challenge lets start by year
+
+1st year:
+-if students has already grades on a subject then they are irregular ( this happens when students in there Highschool has already have that subject)
+- students can select subject from 1st to 2nd since they have extra student load unit its there choice if they want to advance a subject
+
+2nd year:
+- students who failed a subject in 1st year is automatically an irregular they can retake that subject but on the same semester
+- there is a limit on retaking can retake a subject up to 3 times and within 6 years of the first time you took it
+- when the students subjects that failed has a prerequisite in the 1st year then he cant take that subject yet he needs to passed the 1st year subject
+- now in 2nd semester there's this what they called Year Standing, a certain subject cant be enroll of you haven't completed the 2nd year 1st sem subjects.
+
+3rd year:
+- same from 2nd year
+- they can select subjects from 1st to 2nd year and can also advance if they have not reach the Max Student Load
+
+4th year:
+- same from previous years
+
