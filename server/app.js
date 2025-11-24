@@ -11,8 +11,19 @@ const server = http.createServer(app);
 // ---------------------
 // CORS CONFIG
 // ---------------------
+const allowedOrigins = [
+  'https://ctudb-oes.vercel.app', // frontend URL without trailing slash
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "*",
+  origin: function(origin, callback){
+    if(!origin) return callback(null, true); // allow non-browser tools like Postman
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'CORS policy does not allow access from this origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
@@ -22,8 +33,9 @@ app.use(cors({
 // ---------------------
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "*",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   },
 });
 
