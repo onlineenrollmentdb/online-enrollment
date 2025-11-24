@@ -1,0 +1,71 @@
+/* css/Toast.css */
+
+/* container overlay — top-right, overlaying viewport (doesn't push layout) */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column; /* newest is prepended in JS so it appears at top */
+  gap: 0.5rem;
+  z-index: 99999;
+  pointer-events: none; /* allow clicks to pass through except inside toasts */
+}
+
+/* individual toast: use .app-toast to avoid Bootstrap .toast */
+.app-toast {
+  pointer-events: auto; /* allow clicks on the toast / close button */
+  min-width: 220px;
+  max-width: 360px;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  color: #fff !important;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transform-origin: right top;
+  overflow: hidden;
+  cursor: default;
+  /* combined animation: slide in, stay, then slide out */
+  animation:
+    appToastIn 240ms cubic-bezier(.2,.9,.2,1),
+    appToastOut 240ms linear 3760ms forwards; /* out starts near end of 4s */
+}
+
+/* variants */
+.app-toast.info    { background: #2563eb; } /* blue */
+.app-toast.success { background: #16a34a; } /* green */
+.app-toast.error   { background: #f03434; } /* red */
+.app-toast.warning { background: #d97706; } /* amber */
+
+/* message area */
+.app-toast-message {
+  flex: 1;
+  margin-right: 8px;
+  line-height: 1.2;
+}
+
+/* close button */
+.close-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 6px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.close-btn:hover { opacity: 0.85; }
+
+/* Animations */
+@keyframes appToastIn {
+  from { opacity: 0; transform: translateX(18px) scale(0.98); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes appToastOut {
+  to { opacity: 0; transform: translateX(18px) scale(0.98); }
+}

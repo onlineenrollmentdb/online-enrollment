@@ -1,0 +1,221 @@
+.horizontal-tracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1 1 0;
+}
+
+/* Circle */
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #374151;
+  transition: all 0.2s ease;
+  z-index: 2;
+  position: relative;
+  cursor: default;
+}
+
+.circle.completed {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.circle.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.circle.clickable {
+  cursor: pointer;
+}
+
+.step-details {
+  position: absolute;
+  left: 50%;
+  top: 70px;
+  transform: translateX(-50%);
+  background: var(--white);
+  padding: 10px 12px;
+  gap: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.circle:hover + .step-details {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+/* Labels alternating above/below */
+.step-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  word-wrap: break-word;
+  position: absolute;
+}
+
+.step:nth-child(odd) .step-label {
+  top: 45px;
+}
+
+.step:nth-child(even) .step-label {
+  bottom: 45px;
+}
+
+/* Connector */
+.connector {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 4px;
+  background: #d1d5db;
+  z-index: 1;
+  transform: translateX(50%);
+}
+
+.connector.done {
+  background: linear-gradient(to right, var(--green) 0%, var(--green) 70%, var(--primary-color) 100%);
+}
+
+.step:last-child .connector {
+  display: none;
+}
+.loader {
+	width: 20px;
+	height: 20px;
+	border: 3px solid #ccc;
+	border-top: 3px solid #007bff;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+  0%, 40%, 80%, 100% { transform: scale(1); }
+  20%, 60% { transform: scale(1.15); }
+}
+
+/* ------------------ MOBILE (≤600px) ------------------ */
+@media (max-width: 600px) {
+  .horizontal-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    position: relative;
+  }
+  hr{
+    margin: 0 0 10px 0 !important;
+    width: 100px !important;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start !important;
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .label{
+    font-weight: 600;
+    margin-bottom: 0 !important;
+    color: var(--primary-color) !important;
+  }
+  .details{
+    color: var(--text-color) !important;
+  }
+
+  /* Circle */
+  .circle {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .circle:hover + .step-details {
+    transform: none !important;
+  }
+
+  /* Step details (to the right of circle) */
+  .step-details {
+    position: relative;
+    top: 0;
+    left: 0;
+    border: none;
+    transform: none;
+    background: none;
+    color: #374151;
+    opacity: 1 !important;
+    pointer-events: auto;
+    font-size: 0.9rem;
+    padding: 4px 0;
+    text-align: left;
+  }
+
+  /* Connector (vertical line behind all circles) */
+  .connector {
+    position: absolute;
+    top: 0;
+    left: 20px; /* centers under circle */
+    width: 2px;
+    height: 120px;
+    background: #d1d5db;
+    z-index: 1;
+  }
+
+  .connector.done {
+    background: var(--green);
+  }
+
+  .step:last-child .connector {
+    display: none;
+  }
+
+  /* hide desktop labels */
+  .step-label {
+    display: none;
+  }
+}
+

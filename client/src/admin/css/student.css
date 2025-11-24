@@ -1,0 +1,125 @@
+/* ============================= */
+/* 🔹 Students Tab Layout */
+/* ============================= */
+.students-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--text-color, #333);
+}
+
+.students-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ============================= */
+/* 🔹 Search & Filters */
+/* ============================= */
+.students-controls,
+.search-semester-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+/* ============================= */
+/* 🔹 MAIN LAYOUT (UPDATED) */
+/* ============================= */
+.students-layout {
+  display: flex;
+  flex-direction: column; /* STACK EVERYTHING */
+  width: 100%;
+  gap: 1.5rem;
+}
+
+/* FULL WIDTH Student Details */
+.student-details {
+  width: 100%;
+}
+
+/* FULL WIDTH Subject Records */
+.subject-records {
+  width: 100%;
+}
+
+/* OPTIONAL — horizontal scroll if table is wide */
+.subject-records .table-wrapper {
+  overflow-x: auto;
+}
+
+/* ============================= */
+/* 🔹 Card Style */
+/* ============================= */
+.card {
+  background: linear-gradient(to top, var(--color-2-p), var(--color-2-s)) !important;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* ============================= */
+/* Headers */
+/* ============================= */
+.subject-records-header,
+.student-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.subject-records-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #333);
+  margin: 0;
+}
+
+/* ============================= */
+/* Buttons */
+/* ============================= */
+.records-button {
+  background: var(--primary-color, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.15s;
+}
+
+.records-button:hover {
+  background: #1e4fc5;
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* Input fields */
+/* ============================= */
+.grades-input {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 2px;
+  width: 50px;
+}
+
+/* Mobile responsive (already stacked, just keep spaces nice) */
+@media (max-width: 768px) {
+  .students-layout {
+    gap: 1.25rem;
+  }
+}

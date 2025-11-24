@@ -1,0 +1,68 @@
+
+.ctu-logo {
+  width: 180px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+.login-title {
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+.error-text {
+  color: var(--error-red);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.forgot-section {
+  text-align: right;
+  margin-bottom: 2rem;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.input-with-icon {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.input-with-icon input {
+  padding-left: 40px; /* leave space for the icon */
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 0.9rem;
+}

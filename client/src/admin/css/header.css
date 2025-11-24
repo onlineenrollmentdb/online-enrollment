@@ -1,0 +1,99 @@
+/* ============================= */
+/* 🔹 Header Controls */
+/* ============================= */
+.admin-header-controls {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Search bar */
+.admin-header-controls .search-bar {
+    display: flex;
+    align-items: center;
+    background: #f9fafb;
+    padding: 0.4rem 0.75rem;
+    border-radius: 1rem;
+    width: 40vw;
+}
+.admin-header-controls .search-bar .search-icon {
+    margin-right: 0.5rem;
+    color: #6b7280;
+}
+.admin-header-controls .search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    margin: 0;
+    background: transparent;
+}
+
+/* filter */
+.admin-header-controls .filter select {
+    padding: 0.4rem 0.75rem;
+    border: 0;
+    font-size: 0.9rem;
+    background: #fff;
+    width: auto;
+    outline: none;
+}
+
+/* Semester + Year Info */
+.admin-header-controls .semester-year {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.admin-header-controls .semester-year p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.settings-title{
+  width: 50%;
+}
+
+/* Container for search + dropdown */
+.search-bar-wrapper {
+    position: relative;
+}
+
+/* Dropdown overlay */
+.search-dropdown-overlay {
+    position: absolute;
+    top: 100%; /* right below input */
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95); /* semi-transparent */
+    backdrop-filter: blur(5px); /* background blur */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+/* Dropdown items */
+.search-dropdown-overlay li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.search-dropdown-overlay li:hover {
+    background-color: #f0f0f0;
+}
+.search-dropdown-overlay li.highlighted {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,520 @@
+/* =================================================
+🌐 Global Styles (App.css)
+================================================= */
+
+/* -------------------------------------------------
+Imports
+------------------------------------------------- */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+/* -------------------------------------------------
+Root Variables
+------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary-color: #172d9d;
+  --secondary-color: #00a9f2;
+  --color-highlight: #1a237e;
+
+  /* Color Combinations */
+  --color-1-p: #00e2e0;
+  --color-1-s: #00a9f2;
+  --color-2-p: #787cfe;
+  --color-2-s: #48bed9;
+  --color-3-p: #00e2e0;
+  --color-3-s: #48bed9;
+
+  /* Neutral Colors */
+  --bc: #e8e8e897;
+  --bcb: #ccdefe;
+  --white: #ffffff;
+  --color-border: #c7c6c6;
+
+  /* Text Colors */
+  --text-color: #000000;
+  --text-highlight: #d11f26;
+  --color-text-muted: #555555;
+  --color-text-inverse: #ffffff;
+
+  /* Utility */
+  --color-shadow: rgba(0, 0, 0, 0.15);
+
+  /* Additional */
+  --gold: #ffd700;
+  --green: #16a34a;
+  --error-red: #dc3545;
+  --light-gray: #f5f5f5;
+  --medium-gray: #6c757d;
+}
+
+/* -------------------------------------------------
+Reset & Base Styles
+------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Typography */
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  font-weight: bold;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+/* -------------------------------------------------
+Layout
+------------------------------------------------- */
+.main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* Optimized background */
+  background-image: url("img/CTU_front.jpg"); /* use public folder path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Remove GPU-heavy transforms */
+  filter: none;   /* remove blur */
+  transform: none; /* remove scale */
+
+  z-index: 1;
+}
+
+/* Optional: overlay to slightly darken image for text readability */
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2); /* subtle overlay */
+  z-index: -1;
+}
+
+.container {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+.wrapper-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.layout-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  font-weight: 500;
+  width: 100%;
+  min-width: 180px;
+  color: var(--text-color);
+  padding: 0 2rem 0 0;
+}
+
+.application-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+}
+
+/* Hide scrollbar */
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+.t-body {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.t-body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/CTU_side.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+
+.t-btn{
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.t-btn:hover {
+  background-color: var(--secondary-color) !important;
+}
+
+.t-container {
+  background: var(--white);
+  border-radius: 0 !important;
+  border: 1rem solid rgba(255, 255, 255, 0.3);
+  background-clip: padding-box;
+  padding: 2.2rem 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.change-password-link {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.change-password-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.signup-text {
+  font-size: 13px;
+  margin-top: 16px;
+  text-align: left;
+  color: var(--color-text-muted);
+}
+
+
+/* Subtle fade-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* -------------------------------------------------
+Forms
+------------------------------------------------- */
+form {
+  width: 100%;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background: var(--bc);
+  color: var(--text-color);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color)33;
+  outline: none;
+}
+
+/* -------------------------------------------------
+Buttons
+------------------------------------------------- */
+.btn {
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.btn-approve {
+  background-color: var(--green);
+}
+
+.btn-edit {
+  background-color: var(--gold);
+  color: #000;
+}
+
+.btn-delete {
+  background-color: var(--error-red);
+}
+
+/* -------------------------------------------------
+Password Field
+------------------------------------------------- */
+.password-container {
+  position: relative;
+}
+
+.password-container i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  font-size: 12px;
+}
+
+i {
+  font-size: 12px;
+}
+
+/* -------------------------------------------------
+Alerts & Validation
+------------------------------------------------- */
+.error {
+  color: red;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 0;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+/* -------------------------------------------------
+Modern Forms
+------------------------------------------------- */
+.form-modern {
+  background: var(--bc);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  max-width: 420px;
+  margin: 2.5rem auto;
+  width: 100%;
+}
+
+.form-modern h2 {
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-modern input,
+.form-modern select {
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background: var(--bc);
+  color: var(--text-color);
+}
+
+.form-modern input:focus,
+.form-modern select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color)33;
+  outline: none;
+}
+
+.form-modern button {
+  border-radius: 0.5rem;
+  background: var(--primary-color);
+  color: var(--bc);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border: none;
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.form-modern button:hover {
+  background: var(--secondary-color);
+}
+
+/* -------------------------------------------------
+Modern Tables
+------------------------------------------------- */
+.modern-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.modern-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  font-size: 0.9rem;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 14px 12px;
+  text-align: left;
+}
+
+.modern-table th {
+  background: var(--bc);
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+}
+
+.modern-table tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.modern-table tbody tr:hover {
+  background: #f7f7fa;
+}
+
+
+/* -------------------------------------------------
+Responsive Layouts
+------------------------------------------------- */
+@media (max-width: 1024px) {
+  .grades-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .graph,
+  .subjects {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .main-content{
+    padding-bottom: 10%;
+  }
+  .grades-card {
+    padding: 0.8rem;
+  }
+  .group-cell{
+    font-size: 1rem;
+  }
+  .students-table td,
+  .subject-records td {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .students-table td,
+  .subject-records td {
+    font-size: 0.5rem;
+    padding: 1px 2px;
+  }
+}
+
+

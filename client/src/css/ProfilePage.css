@@ -1,0 +1,248 @@
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 80vw;
+  max-width: 1400px;
+}
+
+.profile-header {
+  text-align: center;
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== GRID ===== */
+.profile-grid-advanced {
+  display: grid;
+  grid-template-columns: repeat(4, 23%);
+  grid-template-rows: repeat(8, auto);
+  gap: 10px 20px;
+}
+
+.profile-picture {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.profile-picture img{
+  width: 200px;
+  height: 200px;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+/* Overlay (only appears when editing & hovering) */
+.profile-pic-wrapper.editable .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Make overlay clickable (hidden input covers it) */
+.profile-pic-wrapper.editable .overlay input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Blur + show overlay ONLY when editable + hovered */
+.profile-pic-wrapper.editable:hover .profile-img {
+  filter: blur(2px) brightness(70%);
+}
+
+.profile-pic-wrapper.editable:hover .overlay {
+  opacity: 1;
+}
+
+/* Map fields to your desired layout positions */
+.profile-grid-advanced > :nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; } /* First Name */
+.profile-grid-advanced > :nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; } /* Middle Name */
+.profile-grid-advanced > :nth-child(4) { grid-column: 4 / 5; grid-row: 1 / 2; } /* Last Name */
+.profile-grid-advanced > :nth-child(5) { grid-column: 4 / 5; grid-row: 2 / 3; } /* Contact */
+.profile-grid-advanced > :nth-child(6) { grid-column: 1 / 2; grid-row: 4 / 5; } /* Student ID */
+.profile-grid-advanced > :nth-child(7) { grid-column: 2 / 4; grid-row: 2 / 3; } /* Address */
+.profile-grid-advanced > :nth-child(8) { grid-column: 2 / 3; grid-row: 3 / 4; } /* District */
+.profile-grid-advanced > :nth-child(9) { grid-column: 2 / 3; grid-row: 4 / 5; } /* Gender */
+.profile-grid-advanced > :nth-child(10) { grid-column: 3 / 4; grid-row: 3 / 4; } /* Region */
+.profile-grid-advanced > :nth-child(11) { grid-column: 4 / 5; grid-row: 3 / 4; } /* Email */
+.profile-grid-advanced > :nth-child(12) { grid-column: 1 / 2; grid-row: 5 / 6; } /* Course */
+.profile-grid-advanced > :nth-child(13) { grid-column: 2 / 3; grid-row: 5 / 6; } /* Citizenship */
+.profile-grid-advanced > :nth-child(14) { grid-column: 1 / 2; grid-row: 6 / 7; } /* Year */
+.profile-grid-advanced > :nth-child(15) { grid-column: 3 / 4; grid-row: 4 / 5; } /* Birthday */
+.profile-grid-advanced > :nth-child(16) { grid-column: 4 / 5; grid-row: 4 / 5; } /* Birthplace */
+.profile-grid-advanced > :nth-child(17) { grid-column: 3 / 4; grid-row: 5 / 6; } /* Religion */
+.profile-grid-advanced > :nth-child(18) { grid-column: 4 / 5; grid-row: 5 / 6; } /* Civil Status */
+.profile-grid-advanced > :nth-child(19) { grid-column: 1 / 2; grid-row: 7 / 8; } /* Status */
+.profile-grid-advanced > :nth-child(20) { grid-column: 2 / 4; grid-row: 6 / 7; } /* Father Name */
+.profile-grid-advanced > :nth-child(21) { grid-column: 2 / 4; grid-row: 7 / 8; } /* Mother Name */
+.profile-grid-advanced > :nth-child(22) { grid-column: 4 / 5; grid-row: 6 / 7; } /* Father Occ */
+.profile-grid-advanced > :nth-child(23) { grid-column: 4 / 5; grid-row: 7 / 8; } /* Mother Occ */
+.profile-grid-advanced > :nth-child(24) { grid-column: 2 / 3; grid-row: 8 / 9; } /* Guardian Name */
+.profile-grid-advanced > :nth-child(25) { grid-column: 3 / 4; grid-row: 8 / 9; } /* Guardian Relation */
+.profile-grid-advanced > :nth-child(26) { grid-column: 4 / 5; grid-row: 8 / 9; } /* Guardian Contact */
+.profile-grid-advanced > :nth-child(27) { grid-column: 1 / 2; grid-row: 8 / 9; } /* Password */
+
+/* ===== FORM STYLING ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.form-input {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.form-static {
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background:   #e2e2e2;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+/* ===== BUTTONS ===== */
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.btn-save,
+.btn-edit,
+.btn-secondary {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-save {
+  background: #007bff;
+  color: white;
+}
+.btn-save:hover {
+  background: #0056b3;
+}
+
+.btn-edit {
+  background: #2563eb;
+  color: white;
+}
+.btn-edit:hover {
+  background: #1e40af;
+}
+
+.btn-secondary {
+  background: #ddd;
+  color: #333;
+}
+.btn-secondary:hover {
+  background: #bbb;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .profile-card {
+    width: 95vw;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .profile-grid-advanced {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profile-picture {
+    order: -1; /* Moves profile picture to top */
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem auto;
+  }
+
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-input,
+  .form-static {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1.5rem;
+  }
+
+  .btn-save,
+  .btn-edit,
+  .btn-secondary {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}

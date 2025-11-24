@@ -1,0 +1,253 @@
+/* ================================
+   Grades Page Layout
+=================================*/
+.grades-dashboard {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--white);
+  text-align: center;
+}
+
+/* ================================
+   Grid Layout
+=================================*/
+.grades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+
+.avg { grid-column: 1; grid-row: 1; }
+.total { grid-column: 2; grid-row: 1; }
+.passed { grid-column: 3; grid-row: 1; }
+.failed { grid-column: 4; grid-row: 1; }
+
+.graph {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  min-height: 280px;
+}
+
+/* Subjects panel just uses global .subject-records */
+.subjects {
+  grid-column: 3 / span 2;
+  grid-row: 2;
+  overflow-y: auto;
+  max-height: 480px;
+}
+
+/* ================================
+  Card Styling
+=================================*/
+
+.grades-card:hover {
+  transform: translateY(-2px);
+}
+
+.grades-card h3 {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.grades-card p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2563eb;
+}
+
+.graph {
+  grid-column: 1 / span 2;
+  min-height: 280px;
+}
+
+.subjects {
+  grid-column: 3 / span 2;
+  overflow-y: auto;
+  max-height: 480px;
+  font-size: 0.78rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+}
+
+.grades-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-size: 0.9rem;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.15s ease-in-out;
+}
+
+.grades-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Tables (shared for grades + records) */
+.students-table,
+.subject-records table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.students-table th,
+.students-table td,
+.subject-records th,
+.subject-records td {
+  border: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Students Tab Layout */
+.students-section {
+  background: #fff;
+  padding: 1.5rem;
+  margin: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.students-controls {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.students-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+/* Subject Records */
+.subject-records .table-wrapper {
+  max-height: 450px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  border: 1px solid #eee;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+/* 🔹 Semester group cell */
+.subject-records .group-cell {
+  background: #f3f6ff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--primary-color, #2563eb);
+  text-align: left;
+  padding: 1rem 0.5rem;
+  border-right: 2px solid #cbd5e1;
+  vertical-align: top;
+  position: sticky;
+  left: 0;
+}
+/* 🔹 Divider */
+.subject-records .semester-divider {
+  height: 4px;
+  background: var(--primary-color, #2563eb);
+  border: none;
+}
+.subject-records tbody tr{
+  padding: 10px;
+}
+/* 🔹 Hover & Alternating Rows */
+.subject-records tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+.subject-records tbody tr:hover {
+  background: #f1f5f9;
+}
+
+
+/* ================================
+   Stats Colors
+=================================*/
+.avg p { color: var(--primary-color, #2563eb); }
+.total p { color: #0f172a; }
+.passed p { color: var(--green, #16a34a); }
+.failed p { color: #dc2626; }
+
+/* ================================
+   Responsive Layout
+=================================*/
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grades-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .passed{
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .failed{
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .graph {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+
+  .subjects {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .grades-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .grades-card {
+    padding: 0.8rem;
+  }
+
+  .grades-card h3 {
+    font-size: 0.85rem;
+  }
+
+  .grades-card p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Very Small (400px phones) */
+@media (max-width: 420px) {
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .subjects {
+    max-height: 300px;
+    padding: 6px;
+  }
+}
