@@ -98,3 +98,14 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Backend running on port ${PORT}`);
 });
+
+
+app.get('/api/test-db', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT 1+1 AS result');
+    res.json({ success: true, rows });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
